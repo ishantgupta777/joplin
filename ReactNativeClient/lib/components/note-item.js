@@ -110,8 +110,8 @@ class NoteItemComponent extends Component {
 		// the number 2 which is used to divide the height is here by testing screen sizes in different
 		// screen sizes emulator
 
-		const height = Dimensions.get('window').height;
-		const allowedLength = Math.round(height / 2);
+		const width = Dimensions.get('window').width;
+		const allowedLength = Math.round(width / 4);
 		if (note.title && note.title.length > allowedLength) {
 			note.title = `${note.title.substr(0,allowedLength)}...`;
 		}
