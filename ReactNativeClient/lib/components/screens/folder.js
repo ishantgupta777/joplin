@@ -82,7 +82,7 @@ class FolderScreenComponent extends BaseScreenComponent {
 
 		this.scheduleSaveIID_ = setTimeout(async () => {
 			await this.saveFolderButton_press_without_closing();
-		}, 1000);
+		}, 100);
 	}
 
 	title_changeText(text) {
