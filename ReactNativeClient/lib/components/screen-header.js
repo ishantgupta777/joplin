@@ -418,7 +418,18 @@ class ScreenHeaderComponent extends React.PureComponent {
 					/>
 				);
 			} else {
-				const title = 'title' in this.props && this.props.title !== null ? this.props.title : '';
+				const deviceWidth = Math.round(Dimensions.get('window').width);
+
+				// availableWidth is the width available for notebook title after removing widths of icons
+				const availableWidth = deviceWidth - 180;
+
+				// here the number 8 is taken after checking different screen sizes and finding a ratio
+				// that works for each
+				const allowedLength = Math.floor(availableWidth / 8);
+
+				let title = 'title' in this.props && this.props.title !== null ? this.props.title : '';
+
+				title = title.length > allowedLength ? `${title.substr(0,allowedLength)}...` : title;
 				return <Text style={this.styles().titleText}>{title}</Text>;
 			}
 		};
