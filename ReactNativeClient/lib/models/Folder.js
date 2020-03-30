@@ -82,6 +82,9 @@ class Folder extends BaseItem {
 			type: 'FOLDER_DELETE',
 			id: folderId,
 		});
+		this.dispatch({
+			type: 'HANDLE_LAST_FOLDER',
+		});
 	}
 
 	static conflictFolderTitle() {
