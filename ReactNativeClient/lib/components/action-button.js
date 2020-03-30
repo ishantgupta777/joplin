@@ -55,6 +55,14 @@ class ActionButtonComponent extends React.Component {
 		this.newNoteNavigate(this.props.parentFolderId, false);
 	}
 
+	createNotebookButton_click() {
+		this.props.dispatch({
+			type: 'NAV_GO',
+			routeName: 'Folder',
+			folderId: null,
+		});
+	}
+
 	render() {
 		const buttons = this.props.buttons ? this.props.buttons : [];
 
@@ -93,7 +101,12 @@ class ActionButtonComponent extends React.Component {
 		}
 
 		if (!buttonComps.length && !this.props.mainButton) {
-			return <ReactNativeActionButton style={{ display: 'none' }} />;
+			return <ReactNativeActionButton
+				buttonColor="rgba(231,76,60,1)"
+				onPress={() => {
+					this.createNotebookButton_click();
+				}}
+			/>;
 		}
 
 		const mainButton = this.props.mainButton ? this.props.mainButton : {};
